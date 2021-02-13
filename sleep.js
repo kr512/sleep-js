@@ -74,6 +74,12 @@ const SleepJS = function () {
         return a;
     }
 
+    /**
+     * 1씩 센 숫자들을 반환합니다.
+     * @param {int} min 최솟값 (정수) 
+     * @param {int} max 최댓값 (정수)
+     * @returns min 부터 max까지 1씩 센 숫자 array.
+     */
     this.countEach = function(min, max) {
         var a = new Array();
         for (var x = min; x <= max; x++) 
