@@ -30,6 +30,27 @@ const SleepJS = function () {
     }
 
     /**
+     * 15분으로 내림된 시, 분Array를 반환함.
+     * @param {int} hours 시로 기준된 소수 시간
+     * @returns array 기반 시/분 반환
+     */
+    this.getTimeArray = function (hours) {
+        hours = hours % 24;
+        return [(hours - hours % 1), (hours % 1 - hours % 0.25) * 60]
+    }
+
+    /**
+     * 15분으로 내림된 텍스트 기반 시간을 반환함.
+     * @param {int} hours 시로 기준된 시간
+     * @param {boolean} showspace space 표시 여부
+     * @returns string 기반 시간 반환
+     */
+    this.getTimeString = function (hours, showspace=false) {
+        var a = this.getTimeArray(hours);
+        return a[0] + (showspace ? ' : ' : ':') + a[1];
+    }
+
+    /**
      * 시간으로 기준이 된 시간을 반환.
      * 공식: (현재 + 0.25(잠드는 15분) + (1.5(90분) * 사이클수)) % 24(24시간 초과시 빼기)
      * @param {int} from 잠드는 시간 (현재) 
