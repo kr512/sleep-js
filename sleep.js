@@ -74,6 +74,13 @@ const SleepJS = function () {
         return a;
     }
 
+    this.countEach = function(min, max) {
+        var a = new Array();
+        for (var x = min; x <= max; x++) 
+            a.push(x);
+        return a;
+    }
+
 }
 
 module.exports = SleepJS;
